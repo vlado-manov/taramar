@@ -1,16 +1,19 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/db";
 import { Review } from "@/models/Review";
 
-type Params = { params: { id: string } };
+type Context = {
+  params: Promise<{ id: string }>;
+};
 
-export async function PUT(req: Request, { params }: Params) {
+export async function PUT(req: NextRequest, { params }: Context) {
   try {
     await connectToDatabase();
     const body = await req.json();
+    const { id } = await params;
 
     const updated = await Review.findByIdAndUpdate(
-      params.id,
+      id,
       {
         ...(body.name != null ? { name: body.name } : {}),
         ...(body.message != null ? { message: body.message } : {}),
@@ -34,10 +37,12 @@ export async function PUT(req: Request, { params }: Params) {
   }
 }
 
-export async function DELETE(_: Request, { params }: Params) {
+export async function DELETE(_: NextRequest, { params }: Context) {
   try {
     await connectToDatabase();
-    await Review.findByIdAndDelete(params.id);
+    const { id } = await params;
+
+    await Review.findByIdAndDelete(id);
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("[DELETE /api/reviews/:id] Error:", error);
