@@ -69,16 +69,18 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className={styles.bottom}>
+            <Link href="/">
           <div className={styles.brand}>
-            <span className={styles.brandMark} aria-hidden="true" />
-            <span className={styles.brandName}>TARAMAR</span>
+                <span className={styles.brandMark} aria-hidden="true" />
+                <span className={styles.brandName}>TARAMAR</span>
           </div>
+            </Link>
 
           <div className={styles.copyright}>
             {t("copyright")}
           </div>
 
-          {/* <nav className={styles.links} aria-label="Footer links">
+          <nav className={styles.links} aria-label="Footer links">
             {links.map((label, idx) => (
               <Link
                 key={`${label}-${idx}`}
@@ -88,7 +90,7 @@ export default function Footer() {
                 {label}
               </Link>
             ))}
-          </nav> */}
+          </nav>
         </div>
       </div>
     </footer>

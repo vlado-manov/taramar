@@ -1,0 +1,228 @@
+.page {
+  width: 100%;
+  color: #000;
+  background: radial-gradient(
+      circle at top left,
+      #22c1c3 0%,
+      #0f766e 28%,
+      #020617 90%
+    );
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1272px;
+  padding: 72px 24px 110px;
+}
+
+/* HERO */
+  
+  .heroInner {
+    padding: 26px 22px 22px;
+  }
+  
+  .kicker {
+    margin: 0 0 10px;
+    font-size: 16px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.title {
+    margin: 0;
+    font-size: 64px;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    color: #E1EDE9;
+  }
+  
+  .updated {
+    margin: 14px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+  }
+  
+  .intro {
+    margin: 14px 0 0;
+    font-size: 20px;
+    line-height: 1.75;
+    color: #fff;
+    max-width: 70ch;
+  }
+  
+  /* LAYOUT */
+  .contentWrap {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+  
+  /* TOC */
+  .tocCard {
+    position: sticky;
+    top: 92px;
+    border-radius: 22px;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    background: #ffffff;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+  }
+  
+  .tocTitle {
+    margin: 0 0 10px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  
+  .toc {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .toc a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.82);
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: #f9fafb;
+    transition: transform 120ms ease-out, background-color 120ms ease-out,
+      border-color 120ms ease-out;
+  }
+  
+  .toc a:hover {
+    background: #ffffff;
+    border-color: rgba(24, 126, 115, 0.45);
+    transform: translateY(-1px);
+  }
+  
+  /* BODY CARD */
+  .bodyCard {
+    border-radius: 22px;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    background: #ffffff;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+    padding: 22px 22px 18px;
+  }
+  
+  .sectionTitle {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #000;
+  }
+  
+  .sectionBody {
+    margin-top: 10px;
+    display: grid;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(0, 0, 0, 0.82);
+  }
+  
+  .sectionBody ul {
+    margin: 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 8px;
+  }
+  
+  .divider {
+    height: 1px;
+    background: rgba(148, 163, 184, 0.35);
+    margin: 18px 0;
+  }
+  
+  /* NOTE / HIGHLIGHT */
+  .noteCard {
+    margin-top: 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(24, 126, 115, 0.28);
+    background: rgba(240, 253, 250, 0.75);
+    padding: 12px 12px;
+  }
+  
+  .noteTitle {
+    margin: 0;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #187e73;
+  }
+  
+  .noteText {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.78);
+  }
+  
+  /* CONTACT */
+  .contactCard {
+    margin-top: 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(24, 126, 115, 0.35);
+    background: rgba(240, 253, 250, 0.75);
+    padding: 12px 12px;
+  }
+  
+  .contactTitle {
+    margin: 0;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #187e73;
+  }
+  
+  .contactText {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.78);
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 980px) {
+    .contentWrap {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  
+    .tocCard {
+      position: relative;
+      top: auto;
+    }
+  
+    .title {
+      font-size: 36px;
+    }
+  }
+  
+  @media (max-width: 520px) {
+    .page {
+      padding: 62px 16px 96px;
+    }
+  
+    .heroInner {
+      padding: 22px 16px 18px;
+    }
+  
+    .bodyCard {
+      padding: 18px 16px 14px;
+    }
+  
+    .title {
+      font-size: 32px;
+    }
+  }
+  
