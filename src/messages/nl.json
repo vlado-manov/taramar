@@ -143,10 +143,12 @@
     },
     "footer": {
       "title": "Alle Taramar producten zijn gemaakt met de puurste en krachtigste elementen uit de IJslandse natuur",
-      "product_q1": "BPA-vrij",
-      "product_q2": "Vegan",
-      "product_q3": "Handgemaakt",
-      "product_q4": "Non-GMO",
+        "product_q1": "Geen toxines[[newline]]Geen hormoonverstoorders",
+        "product_q2": "Zuiver water[[newline]]Zuivere bodem[[newline]]Zuivere lucht",
+        "product_q3": "BPA-vrij",
+        "product_q4": "Vegan",
+        "product_q5": "Handgemaakt",
+        "product_q6": "Niet-GGO",
       "copyright": "© 2025 TARAMAR SEEDS EHF",
       "links": [
         "Algemene voorwaarden",

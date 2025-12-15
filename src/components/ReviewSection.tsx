@@ -24,47 +24,48 @@ export default function ReviewsSection() {
   const reviews: Review[] = [
     {
       id: "r1",
-      name: "ELISE D.",
+      name: "Dagny B.",
       image: "/images/reviews/avatar-1.jpg",
-      text: "“The most honest skincare I’ve ever used.”",
+      text: "“Absolutely love TARAMAR. The products are perfect for my dry skin.”",
     },
     {
       id: "r2",
-      name: "SOFIE G.",
+      name: "Sigrun H.",
       image: "/images/reviews/avatar-2.jpg",
-      text: "“It’s like my skin finally exhaled.”",
+      text: "“I have sensitive skin and these products cause zero irritation. I recommend TARAMAR 100%.”",
     },
     {
       id: "r3",
-      name: "MARIE A.",
+      name: "Inga H.",
       image: "/images/reviews/avatar-3.jpg",
-      text: "“Clean, calm, and effortlessly elegant – just like Dagny herself.”",
+      text: "“After a few months my skin looks smoother, fuller, and healthier. I see a big difference.”",
     },
     {
       id: "r4",
-      name: "NOOR V.",
+      name: "Maria E.",
       image: "/images/reviews/avatar-4.jpg",
-      text: "“My redness dropped in days. I stopped chasing 10-step routines.”",
+      text: "“After six months my skin feels balanced and I barely need makeup anymore.”",
     },
     {
       id: "r5",
-      name: "JULIE K.",
+      name: "Susan E.",
       image: "/images/reviews/avatar-5.jpg",
-      text: "“It feels premium, but not loud. My skin looks quietly expensive.”",
+      text: "“Dry winter patches disappeared completely after using TARAMAR creams.”",
     },
     {
       id: "r6",
-      name: "HANNE S.",
+      name: "Skincare Awards",
       image: "/images/reviews/avatar-6.jpg",
-      text: "“Hydration without the heavy finish. Love it.”",
+      text: "“Light yet nourishing. Absorbs beautifully and leaves skin glowing overnight.”",
     },
     {
       id: "r7",
-      name: "EMMA P.",
+      name: "Klara S.",
       image: "/images/reviews/avatar-7.jpg",
-      text: "“Finally found something that works with my skin, not against it.”",
+      text: "“The sun oil transformed my dry, itchy skin and even helped my face tan naturally.”",
     },
   ];
+  
 
   return (
     <section className={styles.section}>
@@ -128,7 +129,7 @@ export default function ReviewsSection() {
                   </p>
 
                   <div className={styles.cardFooter}>
-                    <div className={styles.avatarWrap}>
+                    {/* <div className={styles.avatarWrap}>
                       <Image
                         src={r.image}
                         alt={r.name}
@@ -136,7 +137,7 @@ export default function ReviewsSection() {
                         height={80}
                         className={styles.avatarImg}
                       />
-                    </div>
+                    </div> */}
 
                     <span className={`${styles.name} font-worksans`}>
                       {r.name}
