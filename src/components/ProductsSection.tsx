@@ -5,17 +5,17 @@ import React, { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import styles from "./ProductsSection.module.css";
+import FullscreenProductModal from "./FullscreenProductModal";
 import {
-    Sun,
-    Atom,
-    Sparkles,
-    Moon,
-    Eye,
-    Droplets,
-    Flower,
-    type LucideIcon,
-  } from "lucide-react";
-  
+  Sun,
+  Atom,
+  Sparkles,
+  Moon,
+  Eye,
+  Droplets,
+  Flower,
+  type LucideIcon,
+} from "lucide-react";
 
 type Product = {
   _id: string;
@@ -44,17 +44,13 @@ type Product = {
   visible: boolean;
 };
 
-type LocalizableKey =
-  | "name"
-  | "headline"
-  | "summary"
-  | "description";
+type LocalizableKey = "name" | "headline" | "summary" | "description";
 
 const MODAL_EXIT_MS = 820;
 
 // PID → icon mapping
 const PRODUCT_ICON_BY_PID: Record<string, LucideIcon> = {
-    "eye-treatment": Eye,
+  "eye-treatment": Eye,
   "the-serum": Atom,
   "night-treatment": Moon,
   "day-treatment": Sun,
@@ -77,9 +73,7 @@ export default function ProductsSection() {
   useEffect(() => {
     fetch("/api/products")
       .then((res) => res.json())
-      .then((data: Product[]) =>
-        setProducts(data.filter((p) => p.visible))
-      )
+      .then((data: Product[]) => setProducts(data.filter((p) => p.visible)))
       .catch(() => {});
   }, []);
 
@@ -96,10 +90,6 @@ export default function ProductsSection() {
       setSelectedProduct(null);
       setIsClosing(false);
     }, MODAL_EXIT_MS);
-  };
-
-  const handleModalClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
   };
 
   const getLocalized = (
@@ -154,13 +144,15 @@ export default function ProductsSection() {
     requestAnimationFrame(animationFrame);
   }
 
+  const selectedIcon = selectedProduct
+    ? PRODUCT_ICON_BY_PID[selectedProduct.pid] ?? Sun
+    : Sun;
+
   return (
     <section className={styles.section} id="products">
       <div className={styles.inner}>
         <div className={styles.header}>
-          <h2 className={`${styles.headline} font-varela`}>
-            {tp("headline")}
-          </h2>
+          <h2 className={`${styles.headline} font-varela`}>{tp("headline")}</h2>
           <p className={styles.subtitle}>{tp("subtitle")}</p>
         </div>
 
@@ -168,8 +160,7 @@ export default function ProductsSection() {
           {products.map((p) => {
             const name = getLocalized(p, "name") ?? p.name;
             const desc =
-              getLocalized(p, "summary") ??
-              getLocalized(p, "description");
+              getLocalized(p, "summary") ?? getLocalized(p, "description");
 
             const firstImage = p.images?.[0];
             const Icon = PRODUCT_ICON_BY_PID[p.pid] ?? Sun;
@@ -189,31 +180,30 @@ export default function ProductsSection() {
                   )}
                 </div>
 
-                <Icon
-                  className={styles.productIcon}
-                  size={16}
-                  color="#187E73"
-                />
+                <Icon className={styles.productIcon} size={16} color="#187E73" />
 
-                <p className={`${styles.productTitle} font-varela`}>
-                  {name}
-                </p>
+                <p className={`${styles.productTitle} font-varela`}>{name}</p>
 
                 {desc && (
-                  <p
-                    className={`${styles.productDesc} font-worksans`}
+                  <p className={`${styles.productDesc} font-worksans`}>{desc}</p>
+                )}
+
+                {/* ✅ SEE MORE — English only */}
+                {isEnglish && (
+                  <button
+                    type="button"
+                    className={`${styles.seeMoreButton} font-varela`}
+                    onClick={() => openProduct(p)}
                   >
-                    {desc}
-                  </p>
+                    SEE MORE
+                  </button>
                 )}
               </div>
             );
           })}
 
           {products.length === 0 && (
-            <p className={styles.empty}>
-              No products available yet.
-            </p>
+            <p className={styles.empty}>No products available yet.</p>
           )}
         </div>
 
@@ -228,98 +218,15 @@ export default function ProductsSection() {
         </div>
       </div>
 
-      {isEnglish && selectedProduct && (
-        <div
-          className={[
-            styles.productOverlay,
-            isClosing
-              ? styles.productOverlayExit
-              : styles.productOverlayEnter,
-          ].join(" ")}
-          onClick={closeProduct}
-        >
-          <div
-            className={[
-              styles.productModal,
-              isClosing
-                ? styles.productModalExit
-                : styles.productModalEnter,
-            ].join(" ")}
-            onClick={handleModalClick}
-          >
-            <button
-              type="button"
-              className={styles.productModalClose}
-              aria-label="Close product details"
-              onClick={closeProduct}
-            >
-              ×
-            </button>
-
-            <div className={styles.productModalInner}>
-              <div className={styles.productModalMedia}>
-                {selectedProduct.images?.[0] ? (
-                  <img
-                    src={selectedProduct.images[0]}
-                    alt={selectedProduct.name}
-                    className={styles.productModalImage}
-                  />
-                ) : (
-                  <div className={styles.productModalBox}>
-                    <span
-                      className={styles.productModalBoxLabel}
-                    >
-                      {selectedProduct.name}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className={styles.productModalText}>
-                <h3 className={styles.productModalTitle}>
-                  {selectedProduct.name}
-                </h3>
-
-                {selectedProduct.headline && (
-                  <p
-                    className={styles.productModalHeadline}
-                  >
-                    {selectedProduct.headline}
-                  </p>
-                )}
-
-                {(selectedProduct.description ||
-                  selectedProduct.summary) && (
-                  <p className={styles.productModalBody}>
-                    {selectedProduct.description ??
-                      selectedProduct.summary}
-                  </p>
-                )}
-
-                {selectedProduct.price != null && (
-                  <p className={styles.productModalPrice}>
-                    {selectedProduct.price.toFixed(2)} €
-                  </p>
-                )}
-
-                {selectedProduct.bulletPoints?.length > 0 && (
-                  <ul className={styles.productModalList}>
-                    {selectedProduct.bulletPoints.map(
-                      (bp, idx) => (
-                        <li
-                          key={`${selectedProduct._id}-bp-${idx}`}
-                        >
-                          {bp}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* ✅ Fullscreen portal modal */}
+      <FullscreenProductModal
+        isOpen={isEnglish && !!selectedProduct}
+        isClosing={isClosing}
+        onClose={closeProduct}
+        product={selectedProduct}
+        Icon={selectedIcon}
+        locale={locale as "en" | "fr" | "nl"}
+      />
     </section>
   );
 }

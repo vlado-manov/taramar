@@ -6,7 +6,7 @@ import { Product } from "@/models/Product";
 export async function GET() {
   try {
     await connectToDatabase();
-    const products = await Product.find().sort({ createdAt: -1 }).lean();
+    const products = await Product.find().sort({ createdAt: 1 }).lean();
     return NextResponse.json(products);
   } catch (error) {
     console.error("[GET /api/products] Error:", error);

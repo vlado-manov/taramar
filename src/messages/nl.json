@@ -131,7 +131,10 @@
           "ariaLabel": "Winkelzoeker kaart",
           "title": "Vul je adres in",
           "subtitle": "We tonen je de dichtstbijzijnde INNO-winkel.",
-          "close": "Sluiten"
+          "close": "Sluiten",
+          "cta": "Vind je dichtstbijzijnde INNO",
+          "tip":"Tip: je kunt een stad, postcode of volledig adres invoeren.",
+          "ctaSearch":"Zoeken..."
         },
             
     "newsletter": {

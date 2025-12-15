@@ -133,7 +133,10 @@
           "ariaLabel": "Store locator map",
           "title": "Enter your address",
           "subtitle": "We’ll show you the closest INNO store.",
-          "close": "Close"
+          "close": "Close",
+          "cta": "Find Your Nearest INNO",
+          "tip": "Tip: you can enter a city, postal code, or full address.",
+          "ctaSearch":"Searching..."
         }
       ,      
     "newsletter": {

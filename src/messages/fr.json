@@ -131,7 +131,10 @@
           "ariaLabel": "Carte des magasins",
           "title": "Entrez votre adresse",
           "subtitle": "Nous vous indiquerons la boutique INNO la plus proche.",
-          "close": "Fermer"
+          "close": "Fermer",
+          "cta": "Trouver votre INNO le plus proche",
+          "tip":"Astuce : vous pouvez saisir une ville, un code postal ou une adresse complète.",
+          "ctaSearch":"Recherche…"
         },
             
     "newsletter": {

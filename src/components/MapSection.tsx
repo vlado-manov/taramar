@@ -29,6 +29,7 @@ const MapInner = dynamic(() => import("./MapInner"), {
 
 export default function MapSection() {
   const t = useTranslations("stores");
+  const tr = useTranslations("mapModal");
   const locations = t.raw("locations") as string[];
 
   const [stores, setStores] = useState<Store[]>([]);
@@ -151,11 +152,11 @@ export default function MapSection() {
             className={`${styles.modalButton} font-varela`}
             style={{ opacity: isSearching ? 0.6 : 1 }}
           >
-            {isSearching ? "Searching…" : "Find closest store"}
+            {isSearching ? tr("ctaSearch") : tr('cta')}
           </button>
 
           <p className={`${styles.modalTip} font-worksans`}>
-            Tip: you can enter a city, postal code, or full address.
+            {tr('tip')}
           </p>
         </form>
       </FullscreenMapModal>
