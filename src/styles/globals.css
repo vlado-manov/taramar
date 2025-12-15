@@ -1,0 +1,313 @@
+/* src/app/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import "./"; */
+
+/* Your custom CSS below */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* =========================================
+   Fonts (public/fonts)
+   ========================================= */
+
+/* Varela (usually regular only) */
+@font-face {
+    font-family: "Varela";
+    src: 
+         url("/fonts/Varela_Round-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Work Sans */
+  @font-face {
+    font-family: "Work Sans";
+    src: 
+         url("/fonts/WorkSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Work Sans";
+    src: 
+         url("/fonts/WorkSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Work Sans";
+    src: 
+         url("/fonts/WorkSans-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Work Sans";
+    src: 
+         url("/fonts/WorkSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Work Sans";
+    src: 
+         url("/fonts/WorkSans-ExtraBold.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Ramillas */
+  @font-face {
+    font-family: "Ramillas";
+    src: 
+         url("/fonts/TTRamillas-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Ramillas";
+    src: 
+         url("/fonts/TTRamillas-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Ramillas";
+    src: 
+         url("/fonts/TTRamillas-MediumItalic.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Ramillas";
+    src: 
+         url("/fonts/TTRamillas-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Ramillas";
+    src: 
+         url("/fonts/TTRamillas-ExtraBold.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  
+  /* =========================================
+     Font utility classes
+     ========================================= */
+  
+  .font-varela {
+    font-family: "Varela", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  
+  .font-worksans {
+    font-family: "Work Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 400;
+  }
+  .font-worksans-medium {
+    font-family: "Work Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 500;
+  }
+  
+  .font-worksans-semiBold {
+    font-family: "Work Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-worksans-bold {
+    font-family: "Work Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 700;
+  }
+  .font-worksans-extraBold {
+    font-family: "Work Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 900;
+  }
+  
+  .font-ramillas {
+    font-family: "Ramillas", Georgia, "Times New Roman", serif;
+    font-weight: 400;
+  }
+  .font-ramillas-medium {
+    font-family: "Ramillas", Georgia, "Times New Roman", serif;
+    font-weight: 500;
+  }
+  .font-ramillas-mediumItalic {
+    font-family: "Ramillas", Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .font-ramillas-extraBold {
+    font-family: "Ramillas", Georgia, "Times New Roman", serif;
+    font-weight: 900;
+  }
+  
+  .font-ramillas-bold {
+    font-family: "Ramillas", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+  }
+  
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+
+html {
+    scroll-behavior: smooth;
+  }
+  /* Leaflet default styles */
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .force-uppercase {
+    text-transform: uppercase;
+  }
+
+  .fv-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 2147483647;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overscroll-behavior: contain;
+  }
+  
+  .fv-shell {
+    width: min(1100px, calc(100vw - 48px));
+    max-height: calc(100dvh - 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .fv-video {
+    width: 100%;
+    height: auto;
+    max-height: calc(100dvh - 48px);
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
+    display: block;
+  }
+  .fm-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    background: rgba(0, 0, 0, 0.72);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overscroll-behavior: contain;
+  }
+  
+  .fm-card {
+    position: relative;
+    width: min(720px, calc(100vw - 48px));
+    max-height: calc(100dvh - 48px);
+    background: #ffffff;
+    color: #000000;
+    border-radius: 16px;
+    box-shadow: 0 40px 140px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+  
+  .fm-head {
+    padding: 28px 28px 0 28px;
+    text-align: center;
+  }
+  
+  .fm-title {
+    font-size: 36px;
+    line-height: 1.05;
+    font-weight: 700;
+  }
+  
+  .fm-subtitle {
+    margin-top: 10px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    line-height: 1.3;
+  }
+  
+  .fm-body {
+    padding: 24px 28px 28px 28px;
+  }
+  
+  .fm-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+  
+  .fm-close:hover {
+    transform: scale(1.05);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+  }
+  
+  .fm-close span {
+    font-size: 18px;
+    line-height: 1;
+    color: #000;
+  }
+  
+  /* Better mobile sizing */
+  @media (max-width: 520px) {
+    .fm-title {
+      font-size: 28px;
+    }
+  
+    .fm-head {
+      padding: 22px 18px 0 18px;
+    }
+  
+    .fm-body {
+      padding: 18px;
+    }
+  }
+  

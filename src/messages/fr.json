@@ -1,0 +1,161 @@
+{
+    "nav": {
+      "home": "Accueil",
+      "stores": "Boutiques",
+      "products": "Produits",
+      "contact": "Contact"
+    },
+    "hero": {
+      "title": "Là où la pureté islandaise rencontre l’élégance belge",
+      "subtitle": "Taramar révèle sur votre peau la force intacte de l’Islande.  Une beauté authentique, désormais disponible chez INNO Belgique.",
+      "ctaProducts": "Découvrir la collection",
+      "ctaStores": "Nous retrouver chez INNO"
+    },
+    "about": {
+      "headline": "Recommandé par",
+      "title": "Dagny Rós Ásmundsdóttir",
+      "subtitle": "Cheffe islandaise et personnalité TV, ambassadrice d’une cuisine naturelle et engagée.",
+      "descHeadline": "Pour Dagny, la pureté n’est pas une tendance: c’est une manière de vivre.",
+      "desc": "Des herbes sauvages qu’elle cueille en Islande aux soins qu’elle choisit, chaque geste exprime son respect profond pour la nature et la science."
+    },
+    "aboutIngredients": {
+      "headline": "Dagny et Taramar partagent une conviction forte:",
+      "title_line1": "Une peau pure commence",
+      "title_line2": "par des ingrédients purs.",
+      "desc": "Des plantes arctiques cueillies à la main dans la nature préservée d’Islande. Grâce à la [[bold]]NoTox® Biofermentation[[/bold]], elles deviennent des actifs doux, hautement assimilables et respectueux de la peau.",
+      "desc2": "Le résultat: des soins [[bold]]apaisants, légers et vivants, comme un souffle d’Islande sur votre peau.[[/bold]]"
+    },
+    "quote": {
+      "quoteHead": "Quand j’ai découvert Taramar, j’ai eu l’impression de rentrer chez moi. Ces soins portent la même intégrité que ma cuisine:  ",
+      "quoteTitle": "pas de toxines, pas de raccourcis… seulement du vrai.",
+      "author": "- Dagny Rós Ásmundsdóttir"
+    },
+    "founders": {
+      "headline": "L’histoire de Taramar",
+      "title": "Née de la science, guidée par la nécessité",
+      "desc": "Après avoir surmonté la maladie de Lyme, la biologiste marine islandaise [[bold]]Prof. Gudrun Marteinsdottir[[/bold]] réalise que sa peau ne tolère plus les cosmétiques traditionnels.Avec son mari, le [[bold]]Prof. Kristberg Kristbergsson[[/bold]], elle se lance dans la création de formules sans toxines, inspirées des ressources pures et puissantes de l’Islande.",
+      "desc2": "Des années de recherche donnent naissance à la [[bold]]NoTox® Biofermentation[[/bold]]: un procédé naturel qui transforme les plantes sauvages en actifs hautement purs et compatibles avec la peau.",
+      "desc3": "Chaque soin Taramar reflète ce parcours: [[bold]]une science précise, une nature intacte, aucun compromis[[/bold]]."
+    },
+    "products": {
+      "headline": "La Collection Taramar",
+      "subtitle": "Sept soins purs et essentiels, fabriqués à la main en petits lots en Islande, pour un rituel quotidien harmonieux.",
+      "items": [
+        {
+          "title": "Le Sérum",
+          "desc": "Une hydratation soyeuse à base de varech fermenté et de thym arctique.",
+          "cta": "Voir plus"
+        },
+        {
+          "title": "Soin de Jour",
+          "desc": "Une nutrition quotidienne qui laisse la peau équilibrée et douce.",
+          "cta": "Voir plus"
+        },
+        {
+          "title": "Soin de Nuit",
+          "desc": "Riche et nourrissant. Conçu pour le confort pendant votre repos.",
+          "cta": "Voir plus"
+        },
+        {
+          "title": "Soin Contour des Yeux",
+          "desc": "Rafraîchissant, doux et sans parfum. Idéal pour les peaux délicates.",
+          "cta": "Voir plus"
+        },
+        {
+          "title": "Soin Purifiant",
+          "desc": "Purifie et rafraîchit sans éliminer les huiles naturelles.",
+          "cta": "Voir plus"
+        },
+        {
+          "title": "Soin aux Fleurs Arctiques",
+          "desc": "Adoucit et illumine la peau grâce à des extraits de fleurs sauvages.",
+          "cta": "Voir plus"
+        },
+        {
+          "title": "Huile Régénérante",
+          "desc": "Des huiles botaniques pures pour une peau souple et éclatante.",
+          "cta": "Voir plus"
+        }
+      ],
+      "cta": "Trouver votre INNO le plus proche"
+    },
+    "experience": {
+      "headline": "EXPÉRIENCE",
+      "title": "Vivez le Rituel Taramar",
+      "location": "CHEZ INNO",
+      "desc": "Dans une sélection de magasins INNO en Belgique, découvrez la sensorialité unique des soins islandais.",
+      "desc2": "Touchez les textures, respirez les arômes naturels, et laissez-vous guider dans un rituel profondément apaisant.",
+      "desc3": "Nos conseillers skincare vous accompagnent pour créer une routine adaptée à votre peau.",
+      "cta": "Trouver votre INNO le plus proche"
+    },
+        "videoSection": {
+          "headline1": "Créé par la nature.",
+          "headline2": "Perfectionné par la science.",
+          "author": "- Dagny Rós",
+          "desc": "De sa cuisine islandaise à votre salle de bain, [[bold]]Dagny suit une seule règle: la pureté[[/bold]].",
+          "desc2": "Son partenariat avec Taramar unit deux mondes: des ingrédients de qualité alimentaire et une expertise scientifique exigeante.",
+          "cta": "Découvrir le rituel de Dagny"
+        },
+    "reviews": {
+      "headline": "Avis Clients",
+      "title": "Ce que disent les femmes",
+      "items": [
+        {
+          "quote": "Les soins les plus honnêtes que j’aie jamais utilisés.",
+          "author": "ELISE D."
+        },
+        {
+          "quote": "C’est comme si ma peau respirait enfin.",
+          "author": "SOFIE G."
+        },
+        {
+          "quote": "Propre, apaisant et élégamment naturel — à l’image de Dagny.",
+          "author": "MARIE A."
+        }
+      ]
+    },
+    "stores": {
+      "headline": "Retrouvez Taramar chez INNO",
+      "desc": "Disponible dans une sélection de magasins:",
+      "desc2": "Découvrez le rituel Taramar en personne.",
+      "locations": [
+        "Bruxelles",
+        "Anvers",
+        "Woluwe",
+        "Charleroi"
+      ],
+      "cta": "Trouver votre INNO le plus proche"
+    },
+    
+        "mapModal": {
+          "ariaLabel": "Carte des magasins",
+          "title": "Entrez votre adresse",
+          "subtitle": "Nous vous indiquerons la boutique INNO la plus proche.",
+          "close": "Fermer"
+        },
+            
+    "newsletter": {
+      "title": "Rejoignez le Cercle Taramar",
+      "subtitle": "Notre newsletter communautaire",
+      "desc": "En Islande, nous cherchons toujours à nous entraider et à partager nos connaissances. Rejoignez notre communauté et recevez des informations exclusives sur les nouveaux lots de recherche, les conseils skincare et les événements en magasin avec Dagny Rós.",
+      "cta": "S’inscrire",
+      "placeholder": "Entrer votre e-mail"
+    },
+    "footer": {
+  "title": "Tous les produits Taramar sont",
+  "product_q1": "Sans toxines[[newline]]Sans perturbateurs hormonaux",
+  "product_q2": "Eau pure[[newline]]Sol pur[[newline]]Air pur",
+  "product_q3": "Sans BPA",
+  "product_q4": "Vegan",
+  "product_q5": "Fabriqués à la main",
+  "product_q6": "Sans OGM",
+  "copyright": "© 2025 TARAMAR SEEDS EHF",
+  "links": [
+    "Conditions générales",
+    "Politique de confidentialité",
+    "Nous contacter"
+  ]
+}
+
+  }
+  

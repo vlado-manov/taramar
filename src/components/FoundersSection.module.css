@@ -1,0 +1,127 @@
+/* src/components/FoundersSection.module.css */
+.section {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 120px 16px;
+  }
+  
+  .container {
+    max-width: 1272px;
+    width: 100%;
+    display: flex;
+    gap: 80px;
+    align-items: center; /* ✅ vertical centering */
+  }
+  
+  /* Image */
+  .imageOuter {
+    flex-shrink: 0; /* ✅ prevent shrinking */
+    width: 600px;
+    height: 400px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .imageWrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #111;
+  }
+  
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or "contain" if you prefer no cropping */
+    display: block;
+  }
+  
+  /* Text */
+  .textOuter {
+    flex: 1;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    align-items: center; /* ✅ vertical center text */
+  }
+  
+  .textInner {
+    position: relative;
+  }
+  
+  .headline {
+    font-size: 24px;
+    line-height: 100%;
+    color: #000;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .title {
+    font-size: 48px;
+    line-height: 1;
+    color: #187e73;
+  }
+  
+  .desc {
+    margin-top: 40px;
+    font-size: 18px;
+    letter-spacing: 0%;
+    line-height: 120%;
+    color: #000;
+  }
+  
+  .desc2 {
+    margin-top: 16px;
+    font-size: 18px;
+    letter-spacing: 0%;
+    line-height: 120%;
+    color: #000;
+  }
+  
+  .desc3 {
+    margin-top: 16px;
+    font-size: 18px;
+    letter-spacing: 0%;
+    line-height: 120%;
+    color: #000;
+  }
+  
+
+  /* @media (max-width: 1110px) and (min-width: 961px){
+    .section {
+        padding: 160px 40px;
+    }
+    .imageOuter {
+        width: 40%;
+        height: auto;
+        padding: 0;
+    }
+  } */
+  @media (max-width: 1024px){
+      .container {
+          flex-direction: column-reverse;
+          gap: 40px;
+        }
+        .imageOuter {
+            padding: 0;
+        }
+    }
+    @media (max-width: 960px){
+        .textOuter {
+            max-width: 520px;
+        }
+    }
+    @media (max-width: 767px){
+        .section {
+            padding: 64px 0;
+        }
+        .imageOuter {
+            width: 100%;
+        }
+        .textOuter {
+            padding: 0 16px;
+        }
+    }

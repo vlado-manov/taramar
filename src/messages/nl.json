@@ -1,0 +1,158 @@
+{
+    "nav": {
+      "home": "Home",
+      "stores": "Winkels",
+      "products": "Producten",
+      "contact": "Contact"
+    },
+    "hero": {
+      "title": "Waar IJslandse puurheid en Belgische elegantie mekaar ontmoeten",
+      "subtitle": "Voel de natuurlijke kracht van IJsland op je huid met Taramar. Nu te verkrijgen bij INNO België.",
+      "ctaProducts": "Ontdek de collectie",
+      "ctaStores": "Bezoek ons bij INNO"
+    },
+    "about": {
+      "headline": "Aanbevolen door",
+      "title": "Dagny Rós Ásmundsdóttir",
+      "subtitle": "Topchef uit IJsland en bekend TV-gezicht van MasterChef, De Keuken van Sofie en De Slimste Mens ter Wereld.",
+      "descHeadline": "Voor Dagny is puurheid geen modetrend, maar een levensstijl.",
+      "desc": "Van de wilde kruiden in haar gerechten tot de zorg voor haar huid, elke keuze vertrekt vanuit respect voor natuur en wetenschap."
+    },
+    "aboutIngredients": {
+      "headline": "Dagny en Taramar delen één filosofie -",
+      "title_line1": "Pure huid,",
+      "title_line2": "pure ingrediënten",
+      "desc": "Handgeplukte Arctische botanicals uit de ongerepte natuur van IJsland. Dankzij onze gepatenteerde [[bold]]NoTox® Biofermentatie[[/bold]] worden deze ingrediënten omgezet in zachte, huidvriendelijke werkstoffen.",
+      "desc2": "Het resultaat? Huidverzorging die [[bold]]kalm, licht en levendig aanvoelt[[/bold]] — precies zoals IJsland zelf."
+    },
+    "quote": {
+      "quoteHead": "Toen ik Taramar ontdekte, voelde het als thuiskomen.",
+      "quoteTitle": "Het is skincare gemaakt met dezelfde integriteit als mijn gerechten: geen toxines, geen shortcuts, alleen eerlijke en echte ingrediënten.",
+      "author": "- Dagny Rós Ásmundsdóttir"
+    },
+    "founders": {
+      "headline": "HET VERHAAL ACHTER TARAMAR",
+      "title": "Geboren uit noodzaak [[newline]]en wetenschap",
+      "desc": "Het verhaal van Taramar startte met professor [[bold]]Gudrun Marteinsdottir[[/bold]], een zeebiologe uit IJsland. Tijdens haar herstel van de ziekte van Lyme ontdekte ze dat haar huid traditionele huidverzorgingsproducten plots niet meer verdroeg.",
+      "desc2": "Samen met haar echtgenoot, professor Food Science [[bold]]Kristberg Kristbergsson[[/bold]], ging ze op zoek naar formules zonder kunstmatige, schadelijke bestanddelen. 100% organische formules gebaseerd op de kracht en vitaliteit van de IJslandse natuur.",
+      "desc3": "Jaren onderzoek leidden uiteindelijk tot [[bold]]NoTox® Biofermentatie[[/bold]] — een natuurlijk proces dat wilde, IJslandse planten omzet in uitgepuurde, huidvriendelijke actieve bestanddelen. Elke druppel Taramar weerspiegelt deze zoektocht: wetenschappelijk onderbouwd, zuivere ingrediënten, geen compromissen."
+    },
+    "products": {
+      "headline": "DE TARAMAR COLLECTIE",
+      "subtitle": "7 zuivere, pure formules die harmonie brengen in je dagelijks ritueel, met de hand gemaakt in kleine batches in IJsland.",
+      "items": [
+        {
+          "title": "The Serum",
+          "desc": "Zijdezachte hydratatie met gefermenteerd zeewier en Arctische tijm.",
+          "cta": "Lees meer"
+        },
+        {
+          "title": "Day Treatment",
+          "desc": "Dagelijkse voeding voor een frisse, stralende huid.",
+          "cta": "Lees meer"
+        },
+        {
+          "title": "Night Treatment",
+          "desc": "Rijke verzorging voor de nacht. Ontspannend en herstellend.",
+          "cta": "Lees meer"
+        },
+        {
+          "title": "Eye Treatment",
+          "desc": "Verkoelend, mild en parfumvrij. Perfect voor de gevoelige huid rondom je ogen.",
+          "cta": "Lees meer"
+        },
+        {
+          "title": "Purifying Treatment",
+          "desc": "Diepreinigend en verhelderend, zonder je natuurlijke huidbarrière te verstoren.",
+          "cta": "Lees meer"
+        },
+        {
+          "title": "Arctic Flower Treatment",
+          "desc": "Een zachte glow met extracten van wilde, IJslandse bloemen.",
+          "cta": "Lees meer"
+        },
+        {
+          "title": "Rejuvenating Oil",
+          "desc": "Pure, botanische oliën die de huid voeden en doen stralen.",
+          "cta": "Lees meer"
+        }
+      ],
+      "cta": "Vind jouw dichtstbijzijnde INNO"
+    },
+    "experience": {
+      "headline": "ERVAAR HET TARAMAR RITUEEL",
+      "title": "Bij INNO",
+      "location": "IN BELGIË",
+      "desc": "Beleef de zuiverheid van IJslandse skincare in levende lijve, exclusief bij geselecteerde INNO-winkels in België.",
+      "desc2": "Laat je meevoeren door de texturen, geuren en rustgevende kracht van natuurlijke verzorging door Taramar.",
+      "desc3": "Onze adviseurs begeleiden je bij elke stap van je dagelijkse ritueel.",
+      "cta": "Vind jouw dichtstbijzijnde INNO"
+    },
+    "videoSection": {
+      "headline1": "Gemaakt door de natuur.",
+      "headline2": "Geperfectioneerd door de wetenschap.",
+      "author": "- Dagny Rós",
+      "desc": "Van haar IJslandse keuken tot jouw dagelijks skincare ritueel, voor Dagny Rós telt maar één ding: [[bold]]puurheid[[/bold]].",
+      "desc2": "Haar samenwerking met Taramar verenigt twee werelden: pure, eetbare ingrediënten en wetenschappelijke perfectie.",
+      "cta": "Ontdek Dagny’s ritueel"
+    },
+    "reviews": {
+      "headline": "KLANTENREVIEWS",
+      "title": "Wat Belgische vrouwen vertellen",
+      "items": [
+        {
+          "quote": "De meest eerlijke huidverzorging die ik ooit heb gebruikt.",
+          "author": "ELISE D."
+        },
+        {
+          "quote": "Het voelt alsof mijn huid eindelijk kan ademen.",
+          "author": "SOFIE G."
+        },
+        {
+          "quote": "Zuiver, kalm en moeiteloos elegant.",
+          "author": "MARIE A."
+        }
+      ]
+    },
+    "stores": {
+      "headline": "VIND TARAMAR IN INNO",
+      "desc": "Nu verkrijgbaar in een select aantal INNO stores in België:",
+      "desc2": "Ervaar zelf het Taramar Ritueel",
+      "locations": [
+        "Brussel",
+        "Antwerpen",
+        "Woluwe",
+        "Charleroi"
+      ],
+      "cta": "Vind je dichtstbijzijnde INNO"
+    },
+    
+        "mapModal": {
+          "ariaLabel": "Winkelzoeker kaart",
+          "title": "Vul je adres in",
+          "subtitle": "We tonen je de dichtstbijzijnde INNO-winkel.",
+          "close": "Sluiten"
+        },
+            
+    "newsletter": {
+      "title": "Word lid van de Taramar Circle",
+      "subtitle": "ONZE COMMUNITY NEWSLETTER",
+      "desc": "In IJsland proberen we steeds om mekaar te helpen en delen we graag onze kennis. Word nu lid van onze community en ontvang exclusieve updates over nieuwe ontdekkingen en producten, skincare inzichten en in-store events met Dagny Rós.",
+      "cta": "Word lid",
+      "placeholder": "E-mail invullen"
+    },
+    "footer": {
+      "title": "Alle Taramar producten zijn gemaakt met de puurste en krachtigste elementen uit de IJslandse natuur",
+      "product_q1": "BPA-vrij",
+      "product_q2": "Vegan",
+      "product_q3": "Handgemaakt",
+      "product_q4": "Non-GMO",
+      "copyright": "© 2025 TARAMAR SEEDS EHF",
+      "links": [
+        "Algemene voorwaarden",
+        "Privacybeleid",
+        "Contacteer ons"
+      ]
+    }
+  }
+  

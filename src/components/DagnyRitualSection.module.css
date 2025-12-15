@@ -1,0 +1,174 @@
+/* src/components/DagnyRitualSection.module.css */
+.section {
+    padding: 60px 0;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1272px;
+  }
+  
+
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+    gap: 48px;
+    align-items: stretch;
+  }
+  
+  .leftSide {
+    grid-area: left;
+  }
+  
+  .rightSide {
+    grid-area: right;
+  }
+  /* Left thumbnail */
+  .thumb {
+    position: relative;
+    width: min(600px, 100%);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #111827;
+    border-radius: 4px;
+    border: 1px solid #1f2933;
+  }
+  
+  .thumbImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: center top;
+  }
+  
+  .playButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 88px;
+    height: 88px;
+    border-radius: 9999px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 200ms ease-out, box-shadow 200ms ease;
+  }
+  
+  .playButton:hover {
+    transform: translate(-50%, -50%) scale(1.04);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65);
+  }
+  
+  .playTriangle {
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 24px solid #111827;
+    margin-left: 4px;
+  }
+  
+  /* Right content */
+  .right {
+    flex: 1;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .rightInner {
+    position: relative;
+    margin-bottom: -100px;
+  }
+  
+  .openQuote {
+    font-size: 240px;
+    color: #dbac22;
+    height: 60px;
+    position: absolute;
+    top: -200px;
+    left: 0;
+  }
+  
+  .headline {
+    font-size: 48px;
+    line-height: 1;
+    color: #dbac22;
+  }
+  
+  .author {
+    margin-top: 20px;
+    font-size: 24px;
+    letter-spacing: 3%;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  .desc {
+    margin-top: 40px;
+    line-height: 1.1;
+    font-size: 18px;
+    color: #fff;
+    max-width: 520px;
+  }
+  
+  .desc2 {
+    margin-top: 16px;
+    line-height: 1.1;
+    font-size: 18px;
+    color: #fff;
+    max-width: 520px;
+  }
+  
+  .ctaButton {
+    margin-top: 40px;
+    text-transform: uppercase;
+    border-radius: 99px;
+    padding: 10px 60px;
+    background: #fff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.6fr);
+        padding: 64px 0;
+        gap: 16px;
+    }
+  }
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "right"
+        "left";
+    }
+    .thumb {
+        width: 100%;
+    }
+    .right {
+        padding: 60px 16px;
+    }
+    .ctaButton {
+        width: 100%;
+    }
+  }

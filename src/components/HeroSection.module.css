@@ -1,0 +1,153 @@
+.hero {
+    position: relative;
+    height: calc(100vh - 120px);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* Background video */
+  .video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  /* Overlay rgba(0,0,0,0.35) */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+  }
+  
+  /* Content wrapper */
+  .contentWrap {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+  
+  /* Container = max-w-[1272px] px-4 */
+  .container {
+    width: 100%;
+    max-width: 1272px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  /* flex flex-col md:flex-row items-center */
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Left column */
+  .left {
+    width: 100%;
+    color: #ffffff;
+  }
+  
+  /* space-y-3 */
+  .left > * + * {
+    margin-top: 12px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+  
+  .subtitle {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: rgb(243, 244, 246);
+    max-width: 28rem;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  /* Buttons */
+  .buttonPrimary,
+  .buttonSecondary {
+    display: block;
+    width: auto;
+    padding: 10px 60px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    transition: background-color 200ms ease, border-color 200ms ease;
+  }
+  
+  .buttonPrimary {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+  
+  .buttonPrimary:hover {
+    background: rgb(243, 244, 246);
+  }
+  
+  .buttonSecondary {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: #ffffff;
+    background: transparent;
+  }
+  
+  .buttonSecondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Right spacer */
+  .rightSpacer {
+    display: none;
+  }
+  
+  /* Video-ready gating */
+  .notReady {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .ready {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 450ms ease;
+  }
+  
+  /* md+ rules */
+  @media (min-width: 768px) {
+    .row {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .left {
+      width: 50%;
+    }
+  
+    .rightSpacer {
+      display: block;
+      width: 50%;
+    }
+  
+    .left > * + * {
+      margin-top: 16px;
+    }
+  }
+  @media (max-width: 640px){
+    .title {
+        font-size: 2rem;
+    }
+    .buttonPrimary,
+    .buttonSecondary {
+        width: 100%;
+    }
+  }

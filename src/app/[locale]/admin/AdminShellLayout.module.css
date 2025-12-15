@@ -1,0 +1,321 @@
+.adminShell {
+    min-height: 100vh;
+    padding: 32px 16px;
+    background: radial-gradient(
+      circle at top left,
+      #22c1c3 0%,
+      #0f766e 28%,
+      #020617 90%
+    );
+  }
+  
+  .adminContainer {
+    max-width: 1120px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  /* Header */
+  
+  .adminHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 4px;
+  }
+  
+  @media (min-width: 640px) {
+    .adminHeader {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+  
+  .adminKicker {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #e1ede9;
+  }
+  
+  .adminTitle {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  @media (min-width: 640px) {
+    .adminTitle {
+      font-size: 1.35rem;
+    }
+  }
+  
+  .adminSubtitle {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  .adminMeta {
+    margin: 6px 0 0;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  
+  @media (min-width: 640px) {
+    .adminMeta {
+      margin-top: 0;
+    }
+  }
+  
+  /* Shell card */
+  
+  .adminShellCard {
+    flex: 1;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(225, 237, 233, 0.95);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(22px);
+    padding: 16px;
+  }
+  
+  @media (min-width: 640px) {
+    .adminShellCard {
+      padding: 24px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .adminShellCard {
+      padding: 28px;
+    }
+  }
+  
+  .adminShellInner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+  }
+  
+  @media (min-width: 1024px) {
+    .adminShellInner {
+      flex-direction: row;
+      gap: 32px;
+    }
+  }
+  
+  /* Sidebar */
+  
+  .adminSidebar {
+    width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    .adminSidebar {
+      max-width: 260px;
+      width: 260px;
+    }
+  }
+  
+  .adminSidebarCard {
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  @media (min-width: 640px) {
+    .adminSidebarCard {
+      padding: 20px 20px 18px;
+    }
+  }
+  
+  .adminSidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  
+  .sidebarKicker {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  
+  .sidebarTitle {
+    margin: 2px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #187e73;
+  }
+  
+  .sidebarAvatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #187e73, #2dd4bf);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.32);
+  }
+  
+  /* Sidebar buttons / nav */
+  
+  .sidebarButtons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .sidebarSectionLabel {
+    margin: 0 0 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #9ca3af;
+  }
+  
+  /* Base pill */
+  
+  .navPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.8);
+    background: #e1ede9; /* soft green so it pops on white */
+    color: #187e73;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+    transform: translateY(0);
+    transition:
+      background-color 140ms ease-out,
+      color 140ms ease-out,
+      border-color 140ms ease-out,
+      box-shadow 140ms ease-out,
+      transform 140ms ease-out;
+    width: auto;
+  }
+  
+  .navPill:hover {
+    background: #187e73;
+    color: #ffffff;
+    border-color: #187e73;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
+  }
+  
+  .navPill:active {
+    transform: translateY(0);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Active state */
+  
+  .navPillActive {
+    background: linear-gradient(135deg, #187e73, #0f766e);
+    color: #ffffff;
+    border-color: #187e73;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Icon + label */
+  
+  .navPillIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    width: 26px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    font-weight: 600;
+    color: #187e73;
+  }
+  
+  .navPillActive .navPillIcon,
+  .navPill:hover .navPillIcon {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+  }
+  
+  .navPillLabel {
+    white-space: nowrap;
+  }
+  
+  /* Sidebar footnote */
+  
+  .sidebarFootnote {
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+  }
+  
+  .sidebarFootnoteText {
+    margin: 0;
+    font-size: 11px;
+    color: #4b5563;
+  }
+  
+  /* Main content */
+  
+  .adminMain {
+    flex: 1;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    padding: 16px;
+    color: #111827;
+  }
+  
+  @media (min-width: 640px) {
+    .adminMain {
+      padding: 20px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .adminMain {
+      padding: 24px;
+    }
+  }
+  
+  /* Footer */
+  
+  .adminFooter {
+    font-size: 11px;
+    text-align: center;
+    padding-top: 4px;
+    color: rgba(241, 245, 249, 0.9);
+  }
+  
+  .adminFooterBrand {
+    font-weight: 600;
+    color: #a5f3fc;
+  }
+  

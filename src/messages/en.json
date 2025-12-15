@@ -1,0 +1,162 @@
+{
+    "nav": {
+      "home": "Home",
+      "stores": "Stores",
+      "products": "Products",
+      "contact": "Contact"
+    },
+    "hero": {
+      "title": "Icelandic Purity Meets Belgian Elegance",
+      "subtitle": "Taramar brings the untouched nature of Iceland to your skin.Organic skincare available at INNO Belgium.",
+      "ctaProducts": "Discover the Collection",
+      "ctaStores": "Find Us at INNO"
+    },
+    "about": {
+      "headline": "ENDORSED BY",
+      "title": "Dagny Rós Ásmundsdóttir",
+      "subtitle": "Icelandic chef and TV personality.",
+      "descHeadline": "FOR DAGNY PURITY ISN’T A TREND, IT’S A WAY OF LIFE.",
+      "desc": "From the wild herbs she cooks with to the care she gives her skin, every choice is guided by respect for nature and science."
+    },
+    "aboutIngredients": {
+      "headline": "Dagny and taramar share a Philosophy -",
+      "title_line1": "Pure Skin,",
+      "title_line2": "Pure Ingredients",
+    "desc": "Handpicked arctic botanicals, from the virgin nature of Iceland. Using [[bold]]NoTox® Biofermentation[[/bold]], ingredients are transformed into gentle, skin-compatible actives.",
+    "desc2": "The result is skincare that feels [[bold]]calm, light, and alive[[/bold]] – just like Iceland itself."
+    },
+    "quote": {
+      "quoteHead": "When I discovered Taramar, it felt like home. It’s skincare made with the same integrity I bring to my kitchen -",
+      "quoteTitle": "no toxins, no shortcuts, only what’s real.",
+      "author": "- Dagny Rós Ásmundsdóttir"
+    },
+    "founders": {
+      "headline": "THE FOUNDERS’ STORY",
+      "title": "Born From Science [[newline]]And Personal Need",
+      "desc": "The Taramar story began when, after recovering from Lyme disease, Icelandic marine biologist [[bold]]Prof. Gudrun Marteinsdottir[[/bold]], suddenly became sensitive to skincare she once tolerated. She and her husband, food-science [[bold]]Prof. Kristberg Kristbergsson[[/bold]], set out to create toxin-free formulas that combined indigenous ingredients  with legendary Icelandic vitality.",
+      "desc2": "Years of research led to [[bold]]NoTox® Biofermentation[[/bold]] - a natural process that transforms wild Icelandic plants into high-purity, skin-compatible actives.",
+      "desc3": "Every drop of Taramar reflects that journey: [[bold]]slow science, clean ingredients, no compromise.[[/bold]]"
+    },
+    "products": {
+      "headline": "THE TARAMAR COLLECTION",
+      "subtitle": "Seven clean, pure formulations that bring harmony to your daily ritual — all handmade in small batches in Iceland.",
+      "items": [
+        {
+          "title": "The Serum",
+          "desc": "Silky hydration with fermented sea kelp and arctic thyme.",
+          "cta": "See more"
+        },
+        {
+          "title": "Day Treatment",
+          "desc": "Daily nourishment that leaves the skin balanced and smooth.",
+          "cta": "See more"
+        },
+        {
+          "title": "Night Treatment",
+          "desc": "Rich and nurturing. Designed for comfort while you rest.",
+          "cta": "See more"
+        },
+        {
+          "title": "Eye Treatment",
+          "desc": "Cooling, gentle, and fragrance-free. Perfect for delicate skin.",
+          "cta": "See more"
+        },
+        {
+          "title": "Purifying Treatment",
+          "desc": "Clarifies and refreshes without stripping natural oils.",
+          "cta": "See more"
+        },
+        {
+          "title": "Arctic Flower Treatment",
+          "desc": "Softens and illuminates with wildflower extracts.",
+          "cta": "See more"
+        },
+        {
+          "title": "Rejuvenating Oil",
+          "desc": "Pure botanical oils for supple, glowing skin.",
+          "cta": "See more"
+        }
+      ],
+      "cta": "Find Your Nearest INNO"
+    },
+    "experience": {
+      "headline": "EXPERIENCE",
+      "title": "The Taramar Ritual",
+      "location": "AT INNO",
+      "desc": "Now at select INNO locations across Belgium, you can experience the purity of Icelandic skincare first-hand.",
+      "desc2": "Discover the textures, scents, and slow ritual that define Taramar.",
+      "desc3": "Our skincare advisors will guide you through each step of your personal routine.",
+      "cta": "Find Your Nearest INNO"
+    },
+    "videoSection": {
+      "headline1": "Nature Made It.",
+      "headline2": "Science Perfected It.",
+      "author": "- Dagny Rós",
+      "desc": "From her Icelandic kitchen to your skincare routine, [[bold]]Dagny Rós believes in only one standard: purity.[[/bold]]",
+      "desc2":"Her collaboration with Taramar brings together two worlds: food-grade ingredients and scientific precision.",
+      "cta": 
+        "Discover Dagny's Ritual"
+      
+    },
+    "reviews": {
+      "headline": "CUSTOMER INSIGHT",
+      "title": "What Are Women Saying",
+      "items": [
+        {
+          "quote": "The most honest skincare I’ve ever used.",
+          "author": "ELISE D."
+        },
+        {
+          "quote": "It’s like my skin finally exhaled.",
+          "author": "SOFIE G."
+        },
+        {
+          "quote": "Clean, calm, and effortlessly elegant — just like Dagny herself.",
+          "author": "MARIE A."
+        }
+      ]
+    },
+    "stores": {
+      "headline": "FIND TARAMAR AT INNO",
+      "desc": "Now available in select INNO stores across Belgium:",
+      "desc2": "Experience the Taramar ritual in person.",
+      "locations": [
+        "Brussels",
+        "Antwerp",
+        "Woluwe",
+        "Charleroi"
+      ],
+      "cta": "Find Your Nearest INNO"
+    },
+    
+        "mapModal": {
+          "ariaLabel": "Store locator map",
+          "title": "Enter your address",
+          "subtitle": "We’ll show you the closest INNO store.",
+          "close": "Close"
+        }
+      ,      
+    "newsletter": {
+      "title": "Join The Taramar Circle",
+      "subtitle": "OUR COMMUNITY NEWSLETTER",
+      "desc": "In Iceland we always strive to help each other and share what knowledge we have with one another. Join our community and receive exclusive updates on new research batches, skincare insights, and in-store events with Dagny Rós.",
+      "cta": "Subscribe",
+      "placeholder": "Enter email"
+    },
+    "footer": {
+        "title":"All Taramar PRoducs are",
+        "product_q1":"No Toxics.[[newline]]No hormone disruptors",
+        "product_q2":"Pure water[[newline]]Pure soil[[newline]]Pure air",
+        "product_q3":"BPA-Free",
+        "product_q4":"Vegan",
+        "product_q5":"Hand-crafted",
+        "product_q6":"Non-GMO",
+      "copyright": "© 2025 TARAMAR SEEDS EHF",
+      "links": [
+        "Terms & Conditions",
+        "Privacy Policy",
+        "Contact Us"
+      ]
+    }
+  }
+  

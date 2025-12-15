@@ -1,0 +1,88 @@
+/* src/components/Navbar.module.css */
+.header {
+    background: #000;
+    width: 100%;
+  }
+  
+  .nav {
+    max-width: 1272px;
+    margin: 0 auto;
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+  
+  .spacer {
+    /* empty on purpose – balances the layout */
+  }
+  
+  .logoLink {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logo {
+    object-fit: cover;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* Locale switcher */
+  .localeSwitcher {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+  }
+  
+  .localeLink {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: inherit;
+  }
+  
+  .localeLink:hover {
+    text-decoration: underline;
+  }
+  
+  .separator {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav {
+      grid-template-columns: auto auto;
+      row-gap: 12px;
+    }
+  
+    .spacer {
+      display: none;
+    }
+  
+    .logoLink {
+      justify-content: flex-start;
+    }
+  
+    .localeSwitcher {
+      justify-content: flex-end;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav {
+      padding: 10px 12px;
+    }
+  
+    .localeSwitcher {
+      gap: 4px;
+    }
+  
+    .logo {
+      max-width: 220px;
+    }
+  }
+  

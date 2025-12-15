@@ -1,0 +1,164 @@
+.footer {
+    background: #000;
+    color: #fff;
+    width: 100%;
+  }
+  
+  .container {
+    max-width: 1272px;
+    margin: 0 auto;
+    padding: 60px 24px 24px;
+  }
+  
+  .title {
+    text-align: center;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 36px;
+  }
+  
+  /* 6 on desktop, 3 on tablet, 2 on mobile */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 26px;
+    align-items: start;
+  }
+  
+  .card {
+    text-align: center;
+  }
+  
+  .iconWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
+    height: 110px;
+  }
+  
+  .icon {
+    height: auto;
+    width: 100%;
+    max-width: 110px;
+  }
+  
+  .cardText {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-size: 11px;
+    line-height: 1.25;
+    opacity: 0.92;
+  }
+  
+  .divider {
+    height: 1px;
+    background: rgba(24, 126, 115, 0.9); /* teal line like screenshot */
+    margin: 34px 0 18px;
+  }
+  
+  .bottom {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 10px;
+  }
+  
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-self: start;
+  }
+  
+  .brandMark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    opacity: 0.9;
+  }
+  
+  .brandName {
+    letter-spacing: 0.32em;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .copyright {
+    justify-self: center;
+    font-size: 12px;
+    opacity: 0.9;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .links {
+    justify-self: end;
+    display: inline-flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  
+  .link {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  
+  .link:hover {
+    color: #fff;
+  }
+  
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  
+    .bottom {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+  
+    .brand {
+      justify-self: center;
+    }
+  
+    .links {
+      justify-self: center;
+      justify-content: center;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 640px) {
+    .container {
+      padding: 46px 18px 18px;
+    }
+  
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+  
+    .icon {
+      max-width: 96px;
+    }
+  
+    .title {
+      font-size: 14px;
+    }
+  }
+  

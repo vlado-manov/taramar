@@ -1,0 +1,153 @@
+// src/components/ReviewsSection.tsx
+"use client";
+
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import React, { useRef } from "react";
+import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
+import styles from "./ReviewSection.module.css";
+
+type Review = {
+  id: string;
+  name: string;
+  image: string; // /public path
+  text: string;
+};
+
+export default function ReviewsSection() {
+  const t = useTranslations("reviews");
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  const reviews: Review[] = [
+    {
+      id: "r1",
+      name: "ELISE D.",
+      image: "/images/reviews/avatar-1.jpg",
+      text: "“The most honest skincare I’ve ever used.”",
+    },
+    {
+      id: "r2",
+      name: "SOFIE G.",
+      image: "/images/reviews/avatar-2.jpg",
+      text: "“It’s like my skin finally exhaled.”",
+    },
+    {
+      id: "r3",
+      name: "MARIE A.",
+      image: "/images/reviews/avatar-3.jpg",
+      text: "“Clean, calm, and effortlessly elegant – just like Dagny herself.”",
+    },
+    {
+      id: "r4",
+      name: "NOOR V.",
+      image: "/images/reviews/avatar-4.jpg",
+      text: "“My redness dropped in days. I stopped chasing 10-step routines.”",
+    },
+    {
+      id: "r5",
+      name: "JULIE K.",
+      image: "/images/reviews/avatar-5.jpg",
+      text: "“It feels premium, but not loud. My skin looks quietly expensive.”",
+    },
+    {
+      id: "r6",
+      name: "HANNE S.",
+      image: "/images/reviews/avatar-6.jpg",
+      text: "“Hydration without the heavy finish. Love it.”",
+    },
+    {
+      id: "r7",
+      name: "EMMA P.",
+      image: "/images/reviews/avatar-7.jpg",
+      text: "“Finally found something that works with my skin, not against it.”",
+    },
+  ];
+
+  return (
+    <section className={styles.section}>
+      <div className={styles.outer}>
+        <p className={`${styles.headline} font-varela`}>{t("headline")}</p>
+
+        <h2 className={`${styles.title} font-ramillas-mediumItalic`}>
+          {t("title")}
+        </h2>
+
+        {/* Slider wrapper: makes it easy to position custom arrows absolutely */}
+        <div className={styles.sliderWrap}>
+          {/* Custom arrows (absolute, outside swiper) */}
+          <button
+            type="button"
+            aria-label="Previous review"
+            onClick={() => swiperRef.current?.slidePrev()}
+            className={styles.reviewsArrowBtn}
+          >
+            <CircleChevronLeft
+              className={styles.reviewsArrowIcon}
+              size={46}
+            />
+          </button>
+
+          <button
+            type="button"
+            aria-label="Next review"
+            onClick={() => swiperRef.current?.slideNext()}
+            className={styles.reviewsArrowBtn}
+          >
+            <CircleChevronRight
+              className={styles.reviewsArrowIcon}
+              size={46}
+            />
+          </button>
+
+          <Swiper
+            modules={[Navigation]}
+            // ✅ remove original swiper arrows
+            navigation={false}
+            loop
+            slidesPerView={3}
+            spaceBetween={22}
+            speed={600}
+            style={{ overflow: "hidden" }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            breakpoints={{
+                0: { slidesPerView: 1, spaceBetween: 16 },
+                640: { slidesPerView: 2, spaceBetween: 18 },
+                960: { slidesPerView: 3, spaceBetween: 22 },
+              }}
+          >
+            {reviews.map((r) => (
+              <SwiperSlide key={r.id}>
+                <div className={styles.card}>
+                  <p className={`${styles.cardText} font-ramillas-mediumItalic`}>
+                    {r.text}
+                  </p>
+
+                  <div className={styles.cardFooter}>
+                    <div className={styles.avatarWrap}>
+                      <Image
+                        src={r.image}
+                        alt={r.name}
+                        width={80}
+                        height={80}
+                        className={styles.avatarImg}
+                      />
+                    </div>
+
+                    <span className={`${styles.name} font-worksans`}>
+                      {r.name}
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
+  );
+}
