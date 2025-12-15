@@ -1,45 +1,42 @@
 // src/app/[locale]/layout.tsx
 import "@/styles/globals.css";
 import { NextIntlClientProvider } from "next-intl";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/../i18n";
 import "swiper/css";
 import "swiper/css/navigation";
+
 export const dynamic = "force-dynamic";
 
-// Next.js 15+ now passes params as a promise inside async layout
 type Props = {
   children: ReactNode;
-  params: { locale: Locale } | Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 };
 
 async function getMessages(locale: Locale) {
   try {
-    const messages = (await import(`@/messages/${locale}.json`)).default;
-    return messages;
+    return (await import(`@/messages/${locale}.json`)).default;
   } catch {
     notFound();
   }
 }
 
-export default async function LocaleLayout(props: Props) {
-  const resolved = await props; // unwrap promise
-  const { children } = resolved;
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
 
-  // also unwrap params (can also be a promise)
-  const { locale } = await resolved.params;
-
-  if (!locales.includes(locale)) {
+  // Narrow string -> Locale safely
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
 
-  const messages = await getMessages(locale);
+  const typedLocale = locale as Locale;
+  const messages = await getMessages(typedLocale);
 
   return (
-    <html lang={locale}>
+    <html lang={typedLocale}>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={typedLocale} messages={messages}>
           {children}
         </NextIntlClientProvider>
       </body>
