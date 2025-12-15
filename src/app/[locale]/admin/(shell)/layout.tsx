@@ -1,19 +1,20 @@
+// src/app/[locale]/admin/(shell)/layout.tsx
 "use client";
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { MapPinHouse, ShoppingCart } from "lucide-react";
 import styles from "../AdminShellLayout.module.css";
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
 };
 
-export default function AdminShellLayout({ children, params }: Props) {
+export default function AdminShellLayout({ children }: Props) {
   const pathname = usePathname();
-  const { locale } = params;
+  const params = useParams();
+  const locale = typeof params?.locale === "string" ? params.locale : "en";
 
   const isProducts = pathname?.includes("/admin/products");
   const isStores = pathname?.includes("/admin/stores");
@@ -54,7 +55,7 @@ export default function AdminShellLayout({ children, params }: Props) {
                   <p className={styles.sidebarSectionLabel}>Sections</p>
 
                   <Link
-                    href={`/en/admin/products`}
+                    href={`/${locale}/admin/products`}
                     aria-current={isProducts ? "page" : undefined}
                     className={`${styles.navPill} ${
                       isProducts ? styles.navPillActive : ""
@@ -67,7 +68,7 @@ export default function AdminShellLayout({ children, params }: Props) {
                   </Link>
 
                   <Link
-                    href={`/en/admin/stores`}
+                    href={`/${locale}/admin/stores`}
                     aria-current={isStores ? "page" : undefined}
                     className={`${styles.navPill} ${
                       isStores ? styles.navPillActive : ""
@@ -96,8 +97,7 @@ export default function AdminShellLayout({ children, params }: Props) {
 
         <footer className={styles.adminFooter}>
           Internal preview · Synced with the{" "}
-          <span className={styles.adminFooterBrand}>Taramar</span> landing
-          page.
+          <span className={styles.adminFooterBrand}>Taramar</span> landing page.
         </footer>
       </div>
     </section>
