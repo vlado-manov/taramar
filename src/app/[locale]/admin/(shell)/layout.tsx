@@ -4,7 +4,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { MapPinHouse, ShoppingCart } from "lucide-react";
+import { MapPinHouse, ShoppingCart, Star } from "lucide-react";
 import styles from "../AdminShellLayout.module.css";
 
 type Props = {
@@ -18,6 +18,7 @@ export default function AdminShellLayout({ children }: Props) {
 
   const isProducts = pathname?.includes("/admin/products");
   const isStores = pathname?.includes("/admin/stores");
+  const isReviews = pathname?.includes("/admin/reviews");
 
   return (
     <section className={styles.adminShell}>
@@ -78,6 +79,18 @@ export default function AdminShellLayout({ children }: Props) {
                       <MapPinHouse size={14} />
                     </span>
                     <span className={styles.navPillLabel}>Stores</span>
+                  </Link>
+                  <Link
+                    href={`/${locale}/admin/reviews`}
+                    aria-current={isReviews ? "page" : undefined}
+                    className={`${styles.navPill} ${
+                        isReviews ? styles.navPillActive : ""
+                    }`}
+                  >
+                    <span className={styles.navPillIcon}>
+                      <Star size={14} />
+                    </span>
+                    <span className={styles.navPillLabel}>Reviews</span>
                   </Link>
                 </div>
 
