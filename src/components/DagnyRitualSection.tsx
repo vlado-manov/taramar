@@ -3,11 +3,23 @@
 
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import FullscreenVideoModal from "./FullscreenVideoModal";
 import styles from "./DagnyRitualSection.module.css";
 
 export default function DagnyRitualSection() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const pathname = usePathname(); // e.g. /en, /nl, /fr
+  const locale = pathname.split("/")[1] || "en";
+
+  const videoSrcByLocale: Record<string, string> = {
+    en: "/videos/taramar-en-subs.mov",
+    nl: "/videos/taramar-nl-subs.mov",
+    fr: "/videos/taramar-fr-subs.mov",
+  };
+
+  const videoSrc = videoSrcByLocale[locale] ?? videoSrcByLocale.en;
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -26,38 +38,6 @@ export default function DagnyRitualSection() {
   }
 
   const t = useTranslations("videoSection");
-
-  function scrollToSection(id: string) {
-    if (typeof window === "undefined") return;
-
-    const target = document.getElementById(id);
-    if (!target) return;
-
-    const startY = window.scrollY;
-    const targetY = target.getBoundingClientRect().top + window.scrollY;
-    const distance = targetY - startY;
-
-    const duration = 1400;
-    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-
-    let startTime: number | null = null;
-
-    function animationFrame(currentTime: number) {
-      if (startTime === null) startTime = currentTime;
-
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      const easedProgress = easeOutCubic(progress);
-      window.scrollTo(0, startY + distance * easedProgress);
-
-      if (progress < 1) {
-        requestAnimationFrame(animationFrame);
-      }
-    }
-
-    requestAnimationFrame(animationFrame);
-  }
 
   return (
     <>
@@ -123,11 +103,10 @@ export default function DagnyRitualSection() {
         </div>
       </section>
 
-      {/* ✅ Real fullscreen portal modal */}
       <FullscreenVideoModal
         isOpen={isOpen}
         onClose={closeModal}
-        src="/videos/hero.mov"
+        src={videoSrc}
         ariaLabel="Dagny's ritual video"
       />
     </>
