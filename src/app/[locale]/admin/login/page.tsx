@@ -4,8 +4,8 @@
 import { FormEvent, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
-const ADMIN_EMAIL = "Vladimir.manov.bg@gmail.com";
-const ADMIN_PASSWORD = "159987741";
+const ADMIN_EMAIL = "admin@taramar.be";
+const ADMIN_PASSWORD = "UwnzAuxmVb93nHMt";
 
 export default function AdminLoginPage() {
   const router = useRouter();

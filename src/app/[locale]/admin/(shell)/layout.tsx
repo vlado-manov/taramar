@@ -4,7 +4,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { MapPinHouse, ShoppingCart, Star } from "lucide-react";
+import { DockIcon, MapPinHouse, ShoppingCart, Star } from "lucide-react";
 import styles from "../AdminShellLayout.module.css";
 
 type Props = {
@@ -19,6 +19,7 @@ export default function AdminShellLayout({ children }: Props) {
   const isProducts = pathname?.includes("/admin/products");
   const isStores = pathname?.includes("/admin/stores");
   const isReviews = pathname?.includes("/admin/reviews");
+  const isContent = pathname?.includes("/admin/content");
 
   return (
     <section className={styles.adminShell}>
@@ -91,6 +92,18 @@ export default function AdminShellLayout({ children }: Props) {
                       <Star size={14} />
                     </span>
                     <span className={styles.navPillLabel}>Reviews</span>
+                  </Link>
+                  <Link
+                    href={`/${locale}/admin/content`}
+                    aria-current={isContent ? "page" : undefined}
+                    className={`${styles.navPill} ${
+                        isContent ? styles.navPillActive : ""
+                    }`}
+                  >
+                    <span className={styles.navPillIcon}>
+                      <DockIcon size={14} />
+                    </span>
+                    <span className={styles.navPillLabel}>Text content</span>
                   </Link>
                 </div>
 
