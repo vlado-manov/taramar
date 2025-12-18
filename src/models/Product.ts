@@ -31,6 +31,7 @@ export interface IProduct extends Document {
 
   // Commerce
   price?: number;
+  position?: number;
 
   // Visibility toggle
   visible: boolean;
@@ -60,6 +61,7 @@ const ProductSchema = new Schema<IProduct>(
     images: { type: [String], default: [] },
 
     price: { type: Number },
+    position: { type: Number },
     visible: { type: Boolean, default: true },
   },
   { timestamps: true }

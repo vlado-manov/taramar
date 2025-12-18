@@ -1,7 +1,6 @@
-// AdminProductsPage.tsx (same path)
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Plus, Edit2, Trash2, X } from "lucide-react";
 import styles from "./AdminProductsPage.module.css";
 
@@ -9,6 +8,9 @@ type Product = {
   _id?: string;
 
   pid: string;
+
+  // Ordering
+  position?: number;
 
   // Core
   name: string;
@@ -45,6 +47,7 @@ type Message =
 
 const emptyProduct: Product = {
   pid: "",
+  position: undefined,
 
   name: "",
   nameFr: "",
@@ -67,6 +70,16 @@ const emptyProduct: Product = {
 
   visible: true,
 };
+
+function normalizePosition(value: string): number | undefined {
+  const trimmed = value.trim();
+  if (!trimmed) return undefined;
+
+  const num = Number(trimmed);
+  if (Number.isNaN(num)) return undefined;
+
+  return num;
+}
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -111,12 +124,28 @@ export default function AdminProductsPage() {
     loadImages();
   }, []);
 
+  const sortedProducts = useMemo(() => {
+    const copy = [...products];
+
+    copy.sort((a, b) => {
+      const ap = a.position ?? Number.POSITIVE_INFINITY;
+      const bp = b.position ?? Number.POSITIVE_INFINITY;
+
+      if (ap !== bp) return ap - bp;
+
+      return (a.name ?? "").localeCompare(b.name ?? "");
+    });
+
+    return copy;
+  }, [products]);
+
   async function handleSave(product: Product) {
     try {
       setLoading(true);
 
       const payload = {
         pid: product.pid,
+        position: product.position,
 
         name: product.name,
         nameFr: product.nameFr,
@@ -159,9 +188,7 @@ export default function AdminProductsPage() {
 
       showMessage(
         "success",
-        product._id
-          ? "Product updated successfully."
-          : "Product created successfully."
+        product._id ? "Product updated successfully." : "Product created successfully."
       );
       setEditing(null);
       await load();
@@ -204,9 +231,7 @@ export default function AdminProductsPage() {
       if (!res.ok) throw new Error("Failed to update visibility");
       showMessage(
         "success",
-        !product.visible
-          ? "Product is now visible on site."
-          : "Product hidden from site."
+        !product.visible ? "Product is now visible on site." : "Product hidden from site."
       );
       await load();
     } catch (err) {
@@ -223,8 +248,8 @@ export default function AdminProductsPage() {
             <p className={styles.kicker}>Catalog</p>
             <h1 className={styles.title}>Products on the landing page</h1>
             <p className={styles.subtitle}>
-              Toggle visibility to control which Taramar products appear on the
-              public site, and update copy at any time.
+              Set a <strong>Position</strong> to control the order on the landing page (lower = earlier).
+              Toggle visibility to show or hide products.
             </p>
           </div>
 
@@ -270,12 +295,14 @@ export default function AdminProductsPage() {
                   <tr>
                     <th className={styles.colName}>Name</th>
                     <th className={styles.colDescription}>Summary</th>
+                    <th style={{ width: 120 }}>Position</th>
                     <th className={styles.colVisible}>Visible</th>
                     <th className={styles.colActions}>Actions</th>
                   </tr>
                 </thead>
+
                 <tbody className={styles.tbody}>
-                  {products.map((p) => (
+                  {sortedProducts.map((p) => (
                     <tr key={p._id} className={styles.tableRow}>
                       <td className={styles.cellName}>
                         <span className={styles.cellNameText}>{p.name}</span>
@@ -283,19 +310,23 @@ export default function AdminProductsPage() {
                           pid: {p.pid}
                         </div>
                       </td>
+
                       <td className={styles.cellDescription}>
                         <p className={styles.cellDescriptionText}>
                           {p.summary ?? p.description ?? "—"}
                         </p>
                       </td>
+
+                      <td style={{ fontSize: 12, color: "#111827" }}>
+                        {typeof p.position === "number" ? p.position : "—"}
+                      </td>
+
                       <td className={styles.cellVisible}>
                         <button
                           type="button"
                           className={[
                             styles.visibilityPill,
-                            p.visible
-                              ? styles.visibilityPillOn
-                              : styles.visibilityPillOff,
+                            p.visible ? styles.visibilityPillOn : styles.visibilityPillOff,
                           ].join(" ")}
                           onClick={() => toggleVisible(p)}
                         >
@@ -303,24 +334,20 @@ export default function AdminProductsPage() {
                           <span>{p.visible ? "Shown" : "Hidden"}</span>
                         </button>
                       </td>
+
                       <td className={styles.cellActions}>
                         <button
                           type="button"
-                          className={[
-                            styles.iconButton,
-                            styles.iconButtonEdit,
-                          ].join(" ")}
+                          className={[styles.iconButton, styles.iconButtonEdit].join(" ")}
                           onClick={() => setEditing(p)}
                           aria-label="Edit product"
                         >
                           <Edit2 size={16} strokeWidth={2} />
                         </button>
+
                         <button
                           type="button"
-                          className={[
-                            styles.iconButton,
-                            styles.iconButtonDelete,
-                          ].join(" ")}
+                          className={[styles.iconButton, styles.iconButtonDelete].join(" ")}
                           onClick={() => handleDelete(p._id)}
                           aria-label="Delete product"
                         >
@@ -329,13 +356,12 @@ export default function AdminProductsPage() {
                       </td>
                     </tr>
                   ))}
+
                   {products.length === 0 && !loading && (
                     <tr>
-                      <td className={styles.emptyState} colSpan={4}>
+                      <td className={styles.emptyState} colSpan={5}>
                         No products yet. Use{" "}
-                        <span className={styles.emptyStateAccent}>
-                          “New product”
-                        </span>{" "}
+                        <span className={styles.emptyStateAccent}>“New product”</span>{" "}
                         to create your first item.
                       </td>
                     </tr>
@@ -348,10 +374,7 @@ export default function AdminProductsPage() {
 
         {editing && (
           <div className={styles.modalOverlay} onClick={() => setEditing(null)}>
-            <div
-              className={styles.modalCard}
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
               <button
                 type="button"
                 className={styles.modalClose}
@@ -366,62 +389,73 @@ export default function AdminProductsPage() {
               <h2 className={styles.modalTitle}>
                 {editing._id ? "Edit product" : "New product"}
               </h2>
+
               <p className={styles.modalSubtitle}>
-                Manage EN/FR/NL copy + images. The landing page can render the
-                correct language based on locale.
+                Set position to control order (lower shows first). Manage EN/FR/NL copy + images.
               </p>
 
               <div className={styles.modalBody}>
                 <div className={styles.modalGrid}>
-                  {/* Row 1 */}
+                  {/* pid + position */}
                   <div className={styles.modalField}>
                     <label className={styles.modalLabel}>Product ID (pid)</label>
                     <input
                       className={styles.modalInput}
                       value={editing.pid}
-                      onChange={(e) =>
-                        setEditing({ ...editing, pid: e.target.value })
-                      }
+                      onChange={(e) => setEditing({ ...editing, pid: e.target.value })}
                       placeholder="day-treatment"
                     />
                   </div>
 
                   <div className={styles.modalField}>
                     <label className={styles.modalLabel}>
-                      Headline (EN, optional)
+                      Position (optional)
+                      <span style={{ marginLeft: 6, fontSize: 10, opacity: 0.7 }}>
+                        lower = earlier
+                      </span>
                     </label>
+                    <input
+                      className={styles.modalInput}
+                      inputMode="numeric"
+                      type="number"
+                      step={1}
+                      min={0}
+                      value={typeof editing.position === "number" ? String(editing.position) : ""}
+                      onChange={(e) =>
+                        setEditing({
+                          ...editing,
+                          position: normalizePosition(e.target.value),
+                        })
+                      }
+                      placeholder="1"
+                    />
+                  </div>
+
+                  {/* Headlines */}
+                  <div className={styles.modalField}>
+                    <label className={styles.modalLabel}>Headline (EN, optional)</label>
                     <input
                       className={styles.modalInput}
                       value={editing.headline ?? ""}
-                      onChange={(e) =>
-                        setEditing({ ...editing, headline: e.target.value })
-                      }
+                      onChange={(e) => setEditing({ ...editing, headline: e.target.value })}
                     />
                   </div>
 
                   <div className={styles.modalField}>
-                    <label className={styles.modalLabel}>
-                      Headline (FR, optional)
-                    </label>
+                    <label className={styles.modalLabel}>Headline (FR, optional)</label>
                     <input
                       className={styles.modalInput}
                       value={editing.headlineFr ?? ""}
-                      onChange={(e) =>
-                        setEditing({ ...editing, headlineFr: e.target.value })
-                      }
+                      onChange={(e) => setEditing({ ...editing, headlineFr: e.target.value })}
                     />
                   </div>
 
                   <div className={styles.modalField}>
-                    <label className={styles.modalLabel}>
-                      Headline (NL, optional)
-                    </label>
+                    <label className={styles.modalLabel}>Headline (NL, optional)</label>
                     <input
                       className={styles.modalInput}
                       value={editing.headlineNl ?? ""}
-                      onChange={(e) =>
-                        setEditing({ ...editing, headlineNl: e.target.value })
-                      }
+                      onChange={(e) => setEditing({ ...editing, headlineNl: e.target.value })}
                     />
                   </div>
 
@@ -431,9 +465,7 @@ export default function AdminProductsPage() {
                     <input
                       className={styles.modalInput}
                       value={editing.name}
-                      onChange={(e) =>
-                        setEditing({ ...editing, name: e.target.value })
-                      }
+                      onChange={(e) => setEditing({ ...editing, name: e.target.value })}
                     />
                   </div>
 
@@ -442,9 +474,7 @@ export default function AdminProductsPage() {
                     <input
                       className={styles.modalInput}
                       value={editing.nameFr ?? ""}
-                      onChange={(e) =>
-                        setEditing({ ...editing, nameFr: e.target.value })
-                      }
+                      onChange={(e) => setEditing({ ...editing, nameFr: e.target.value })}
                     />
                   </div>
 
@@ -453,9 +483,7 @@ export default function AdminProductsPage() {
                     <input
                       className={styles.modalInput}
                       value={editing.nameNl ?? ""}
-                      onChange={(e) =>
-                        setEditing({ ...editing, nameNl: e.target.value })
-                      }
+                      onChange={(e) => setEditing({ ...editing, nameNl: e.target.value })}
                     />
                   </div>
 
@@ -465,9 +493,7 @@ export default function AdminProductsPage() {
                     <textarea
                       className={styles.modalTextarea}
                       value={editing.summary ?? ""}
-                      onChange={(e) =>
-                        setEditing({ ...editing, summary: e.target.value })
-                      }
+                      onChange={(e) => setEditing({ ...editing, summary: e.target.value })}
                     />
                   </div>
 
@@ -511,10 +537,7 @@ export default function AdminProductsPage() {
                       className={styles.modalTextarea}
                       value={editing.descriptionFr ?? ""}
                       onChange={(e) =>
-                        setEditing({
-                          ...editing,
-                          descriptionFr: e.target.value,
-                        })
+                        setEditing({ ...editing, descriptionFr: e.target.value })
                       }
                     />
                   </div>
@@ -525,19 +548,14 @@ export default function AdminProductsPage() {
                       className={styles.modalTextarea}
                       value={editing.descriptionNl ?? ""}
                       onChange={(e) =>
-                        setEditing({
-                          ...editing,
-                          descriptionNl: e.target.value,
-                        })
+                        setEditing({ ...editing, descriptionNl: e.target.value })
                       }
                     />
                   </div>
 
                   {/* Bullet points */}
                   <div className={[styles.modalField, styles.spanAll].join(" ")}>
-                    <label className={styles.modalLabel}>
-                      Bullet points (one per line)
-                    </label>
+                    <label className={styles.modalLabel}>Bullet points (one per line)</label>
                     <textarea
                       className={styles.modalTextarea}
                       value={(editing.bulletPoints ?? []).join("\n")}
@@ -596,13 +614,9 @@ export default function AdminProductsPage() {
                     type="button"
                     className={[
                       styles.visibilityToggle,
-                      editing.visible
-                        ? styles.visibilityToggleOn
-                        : styles.visibilityToggleOff,
+                      editing.visible ? styles.visibilityToggleOn : styles.visibilityToggleOff,
                     ].join(" ")}
-                    onClick={() =>
-                      setEditing({ ...editing, visible: !editing.visible })
-                    }
+                    onClick={() => setEditing({ ...editing, visible: !editing.visible })}
                   >
                     <span className={styles.visibilityToggleHandle} />
                   </button>
@@ -620,6 +634,7 @@ export default function AdminProductsPage() {
                 >
                   Cancel
                 </button>
+
                 <button
                   type="button"
                   className={styles.primaryPill}
