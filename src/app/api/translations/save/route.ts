@@ -3,6 +3,7 @@
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/db";
 import { TranslationOverride, type TranslationLocale } from "@/models/TranslationOverride";
+import { verifyAdminRequest } from "@/lib/apiAuth";
 
 const LOCALES: TranslationLocale[] = ["en", "fr", "nl"];
 
@@ -12,6 +13,10 @@ type SavePayload = {
 };
 
 export async function PUT(req: Request) {
+  if (!verifyAdminRequest(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   await connectToDatabase();
 
   const body = (await req.json()) as SavePayload;

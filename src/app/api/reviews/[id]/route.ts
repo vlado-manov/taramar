@@ -1,12 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/db";
 import { Review } from "@/models/Review";
+import { verifyAdminRequest } from "@/lib/apiAuth";
 
 type Context = {
   params: Promise<{ id: string }>;
 };
 
 export async function PUT(req: NextRequest, { params }: Context) {
+  if (!verifyAdminRequest(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     await connectToDatabase();
     const body = await req.json();
@@ -38,6 +43,10 @@ export async function PUT(req: NextRequest, { params }: Context) {
 }
 
 export async function DELETE(_: NextRequest, { params }: Context) {
+  if (!verifyAdminRequest(_)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     await connectToDatabase();
     const { id } = await params;

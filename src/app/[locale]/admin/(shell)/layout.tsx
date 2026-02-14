@@ -3,8 +3,8 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
-import { DockIcon, MapPinHouse, ShoppingCart, Star } from "lucide-react";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { DockIcon, LogOut, MapPinHouse, ShoppingCart, Star } from "lucide-react";
 import styles from "../AdminShellLayout.module.css";
 
 type Props = {
@@ -14,7 +14,13 @@ type Props = {
 export default function AdminShellLayout({ children }: Props) {
   const pathname = usePathname();
   const params = useParams();
+  const router = useRouter();
   const locale = typeof params?.locale === "string" ? params.locale : "en";
+
+  async function handleLogout() {
+    await fetch("/api/admin/logout", { method: "POST" });
+    router.push(`/${locale}/admin/login`);
+  }
 
   const isProducts = pathname?.includes("/admin/products");
   const isStores = pathname?.includes("/admin/stores");
@@ -112,6 +118,15 @@ export default function AdminShellLayout({ children }: Props) {
                     Changes here are synced with the public Taramar site after
                     publishing.
                   </p>
+                  <button
+                    onClick={handleLogout}
+                    className={styles.logoutButton}
+                  >
+                    <span className={styles.navPillIcon}>
+                      <LogOut size={14} />
+                    </span>
+                    <span className={styles.navPillLabel}>Log out</span>
+                  </button>
                 </div>
               </div>
             </aside>

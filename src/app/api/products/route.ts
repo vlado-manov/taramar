@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/db";
 import { Product } from "@/models/Product";
+import { verifyAdminRequest } from "@/lib/apiAuth";
 
 type ProductCreatePayload = {
   pid: string;
@@ -51,6 +52,10 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  if (!verifyAdminRequest(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     await connectToDatabase();
 

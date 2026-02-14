@@ -274,13 +274,56 @@
     padding-top: 10px;
     border-top: 1px solid rgba(226, 232, 240, 0.9);
   }
-  
+
   .sidebarFootnoteText {
-    margin: 0;
+    margin: 0 0 10px;
     font-size: 11px;
     color: #4b5563;
   }
-  
+
+  .logoutButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    background: rgba(254, 242, 242, 0.8);
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transition:
+      background-color 140ms ease-out,
+      border-color 140ms ease-out,
+      box-shadow 140ms ease-out,
+      transform 140ms ease-out;
+    width: auto;
+  }
+
+  .logoutButton:hover {
+    background: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+    box-shadow: 0 12px 28px rgba(220, 38, 38, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .logoutButton:hover .navPillIcon {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+  }
+
+  .logoutButton:active {
+    transform: translateY(0);
+  }
+
+  .logoutButton .navPillIcon {
+    background: rgba(220, 38, 38, 0.1);
+    color: #dc2626;
+  }
+
   /* Main content */
   
   .adminMain {

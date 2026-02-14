@@ -4,6 +4,7 @@ import { connectToDatabase } from "@/lib/db";
 import Product from "@/models/Product";
 import { ApiRouteContext } from "@/types/ApiParams";
 import { getRouteId } from "@/lib/getRouteId";
+import { verifyAdminRequest } from "@/lib/apiAuth";
 
 type ProductUpdatePayload = {
   pid?: string;
@@ -34,6 +35,10 @@ type ProductUpdatePayload = {
 };
 
 export async function PUT(req: Request, context: ApiRouteContext) {
+  if (!verifyAdminRequest(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     await connectToDatabase();
 
@@ -91,6 +96,10 @@ export async function PUT(req: Request, context: ApiRouteContext) {
 }
 
 export async function DELETE(_req: Request, context: ApiRouteContext) {
+  if (!verifyAdminRequest(_req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     await connectToDatabase();
 

@@ -4,9 +4,6 @@
 import { FormEvent, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
-const ADMIN_EMAIL = "admin@taramar.be";
-const ADMIN_PASSWORD = "UwnzAuxmVb93nHMt";
-
 export default function AdminLoginPage() {
   const router = useRouter();
   const params = useParams<{ locale: string }>();
@@ -17,23 +14,28 @@ export default function AdminLoginPage() {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError("");
     setIsSubmitting(true);
 
-    // Fake tiny delay so the animation feels nicer
-    setTimeout(() => {
-      const isValid =
-        email.trim() === ADMIN_EMAIL && password === ADMIN_PASSWORD;
+    try {
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), password }),
+      });
 
-      if (isValid) {
+      if (res.ok) {
         router.push(`/${locale}/admin/products`);
       } else {
         setError("Invalid email or password. Please try again.");
         setIsSubmitting(false);
       }
-    }, 500);
+    } catch {
+      setError("Network error. Please try again.");
+      setIsSubmitting(false);
+    }
   }
 
   return (
