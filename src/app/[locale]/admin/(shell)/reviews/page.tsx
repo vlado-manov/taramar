@@ -123,7 +123,7 @@ export default function AdminReviewsPage() {
       <div className={styles.reviewsHeaderRow}>
         <div className={styles.reviewsHeaderText}>
           <p className={styles.reviewsKicker}>Landing</p>
-          <h1 className={styles.reviewsTitle}>Reviews slider</h1>
+          <h1 className={styles.reviewsTitle}>Reviews slider2</h1>
           <p className={styles.reviewsSubtitle}>
             Manage the testimonials shown in the reviews carousel. Provide EN/FR/NL text.
           </p>
