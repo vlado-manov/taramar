@@ -26,6 +26,10 @@ export async function POST(req: Request) {
   const adminEmail = process.env.ADMIN_EMAIL ?? "";
   const adminPassword = process.env.ADMIN_PASSWORD ?? "";
 
+  console.log("[LOGIN DEBUG] received email:", JSON.stringify(email), "len:", email.length);
+  console.log("[LOGIN DEBUG] env email:", JSON.stringify(adminEmail), "len:", adminEmail.length);
+  console.log("[LOGIN DEBUG] env password set:", adminPassword.length > 0);
+
   const valid = safeEqual(email, adminEmail) && safeEqual(password, adminPassword);
 
   if (!valid) {
