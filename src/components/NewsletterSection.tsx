@@ -1,19 +1,59 @@
-// src/components/NewsletterSection.tsx
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 import styles from "./NewsletterSection.module.css";
 
+type State = "idle" | "loading" | "success" | "error";
+
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
+  const [state, setState] = useState<State>("idle");
   const t = useTranslations("newsletter");
+  const params = useParams<{ locale: string }>();
+  const locale = params?.locale ?? "en";
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email.trim()) return;
-    alert(`Subscribed: ${email}`);
-    setEmail("");
+    const trimmed = email.trim();
+    if (!trimmed) return;
+
+    setState("loading");
+    try {
+      const res = await fetch("/api/subscribers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed, locale }),
+      });
+
+      if (res.ok) {
+        setState("success");
+        setEmail("");
+      } else {
+        setState("error");
+      }
+    } catch {
+      setState("error");
+    }
+  }
+
+  if (state === "success") {
+    return (
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <div className={styles.thankYou}>
+            <div className={styles.thankYouIcon}>✓</div>
+            <h2 className={`${styles.thankYouTitle} font-ramillas-mediumItalic`}>
+              {t("thankYouTitle")}
+            </h2>
+            <p className={`${styles.thankYouDesc} font-worksans`}>
+              {t("thankYouDesc")}
+            </p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -38,11 +78,20 @@ export default function NewsletterSection() {
             placeholder={t("placeholder")}
             type="email"
             className={`${styles.input} font-varela`}
+            disabled={state === "loading"}
           />
 
-          <button type="submit" className={`${styles.button} font-varela`}>
-            {t("cta")}
+          <button
+            type="submit"
+            className={`${styles.button} font-varela`}
+            disabled={state === "loading"}
+          >
+            {state === "loading" ? "..." : t("cta")}
           </button>
+
+          {state === "error" && (
+            <p className={styles.errorMsg}>{t("errorMsg")}</p>
+          )}
         </form>
       </div>
     </section>

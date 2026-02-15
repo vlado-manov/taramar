@@ -80,5 +80,59 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     cursor: pointer;
+    transition: opacity 150ms ease;
+  }
+
+  .button:disabled,
+  .input:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .errorMsg {
+    margin: 0;
+    font-size: 13px;
+    color: #fff;
+    opacity: 0.85;
+    text-align: center;
+  }
+
+  /* Thank-you state */
+  .thankYou {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 0;
+    text-align: center;
+  }
+
+  .thankYouIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #fff;
+  }
+
+  .thankYouTitle {
+    margin: 0;
+    font-size: 36px;
+    line-height: 1.1;
+    color: #ffffff;
+  }
+
+  .thankYouDesc {
+    margin: 0;
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.75);
+    max-width: 460px;
   }
   

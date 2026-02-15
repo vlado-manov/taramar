@@ -7,6 +7,7 @@ import { locales, type Locale } from "@/../i18n";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import PageLoader from "@/components/PageLoader";
 import { connectToDatabase } from "@/lib/db";
 import { TranslationOverride, type TranslationOverrideDoc } from "@/models/TranslationOverride";
 import { applyOverrides, type JsonObject } from "@/lib/i18nOverrides";
@@ -59,6 +60,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={typedLocale}>
       <body>
         <NextIntlClientProvider locale={typedLocale} messages={messages}>
+          <PageLoader />
           {children}
         </NextIntlClientProvider>
       </body>
